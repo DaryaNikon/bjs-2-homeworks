@@ -2,23 +2,22 @@
 
 function solveEquation(a, b, c) {
 	let arr = [];
-	let x1;
-	let x2;
-	let D = b ** 2 - 4 * a * c;
+	let root1;
+	let root2;
+	let discriminant = b ** 2 - 4 * a * c;
 
-	if (D > 0) {
-		x1 = (-b + Math.sqrt(D)) / (2 * a);
-		x2 = (-b - Math.sqrt(D)) / (2 * a);
-		arr.push(x1, x2);
-	} else if (D === 0) {
-		x1 = -b / (2 * a);
-		arr.push(x1);
+	if (discriminant > 0) {
+		root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+		root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+		arr.push(root1, root2);
+	} else if (discriminant === 0) {
+		root1 = -b / (2 * a);
+		arr.push(root1);
 	}
 	return arr;
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-	let arr = [];
 	let S = amount - contribution;
 	let P = percent / 100 / 12;
 	let payment;
@@ -27,9 +26,9 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 	if (amount > 0) {
 		payment = S * (P + (P / (((1 + P) ** countMonths) - 1)));
 		credit = (payment * countMonths);
-		arr.push(credit.toFixed(2));
+		credit.push(Number(credit.toFixed(2)));
 	} else if (amount <= 0) {
-		arr.push(Error);
+		credit.push(Error);
 	}
-	return arr;
+	return credit;
 }
