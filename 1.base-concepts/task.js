@@ -26,7 +26,7 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 	if (amount > 0) {
 		payment = S * (P + (P / (((1 + P) ** countMonths) - 1)));
 		credit = (payment * countMonths);
-		alert(Number(credit.toFixed(2)));
+		alert(Number.credit.toFixed(2));
 	}
 	return credit;
 }
